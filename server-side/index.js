@@ -25,12 +25,8 @@ app.use(cors());
 connectDB();
 
 // Route to test the app
-app.get("/home", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Hello World",
-  });
-});
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 
 // Register Spare Parts Routes
 app.use("/api/spares", sparesRouter);
