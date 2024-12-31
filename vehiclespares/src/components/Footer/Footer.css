@@ -1,0 +1,181 @@
+.footer {
+  background: linear-gradient(135deg, #111 0%, #222 100%);
+  color: white;
+  padding: 4rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff2929, #ff5f5f, #ff2929);
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  position: relative;
+}
+
+.footer-column h4 {
+  color: #ff2929;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #ff2929;
+  transition: width 0.3s ease;
+}
+
+.footer-column:hover h4::after {
+  width: 60px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.footer-column ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: #ff2929;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.footer-column ul li:hover {
+  transform: translateX(5px);
+  color: #ff2929;
+}
+
+.footer-column ul li:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.footer-column a:hover {
+  color: #ff2929;
+}
+
+.footer-column a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ff2929;
+  transition: width 0.3s ease;
+}
+
+.footer-column a:hover::after {
+  width: 100%;
+}
+
+/* Social Media Links Specific Styling */
+.footer-column li:last-child {
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+.footer-column li:last-child a {
+  margin: 0 0.5rem;
+}
+
+/* Fancy Hover Effect for Social Links */
+.footer-column li:last-child a:hover {
+  text-shadow: 0 0 8px rgba(255, 41, 41, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 668px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer {
+    padding: 3rem 0 2rem;
+  }
+  
+  .footer-column h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Optional: Add a subtle animation on page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-column {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.footer-column:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.footer-column:nth-child(3) {
+  animation-delay: 0.4s;
+}

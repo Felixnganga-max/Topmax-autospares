@@ -1,0 +1,6 @@
+.collections{
+    margin-top: 1%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}

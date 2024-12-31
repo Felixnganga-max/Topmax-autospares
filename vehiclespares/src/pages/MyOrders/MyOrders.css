@@ -1,0 +1,107 @@
+.my-orders-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .order-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.2s;
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 100%;
+  }
+  
+  .order-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .order-item-details {
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  .order-date {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .order-item-list {
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .order-item-list-item {
+    padding: 0.5rem 0;
+    color: #555;
+  }
+  
+  .order-total {
+    font-weight: 600;
+    color: #2c5282;
+  }
+  
+  .order-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+  }
+  
+  .no-orders-message {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+
+.container-btn{
+position: relative;
+}
+.btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    border: 1px solid #ff2929;
+    border-radius: 4px;
+    color: black;
+}
+
+.btn:hover{
+    background-color: #ff2929;
+    cursor: pointer;
+}
+
+
+@media (max-width: 640px) {
+    .order-item {
+      flex: 1 1 100%;
+      margin: 0.5rem 0;
+    }
+    
+    .order-list {
+      gap: 0.5rem;
+    }
+  }
+  
+ 

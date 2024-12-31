@@ -1,0 +1,402 @@
+/* Hero Container */
+.hero-container {
+  display: flex;
+
+  background: hsla(0, 100%, 58%, 1);
+
+  background: linear-gradient(
+    225deg,
+    hsla(0, 100%, 58%, 1) 38%,
+    hsla(0, 0%, 0%, 1) 38%
+  );
+
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(0, 100%, 58%, 1) 38%,
+    hsla(0, 0%, 0%, 1) 38%
+  );
+
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(0, 100%, 58%, 1) 38%,
+    hsla(0, 0%, 0%, 1) 38%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#ff2929", endColorstr="#000000", GradientType=1 );
+  margin-top: 3px;
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF2929", endColorstr="#000000", GradientType=1 );
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 70vh; /* Increased height to fit content */
+  position: relative;
+  overflow: hidden;
+  transition: background-image 1s ease-in-out; /* Smooth transition for background image */
+}
+
+/* Left Section */
+.hero-left {
+  margin-top: 3%;
+  flex: 1;
+  max-width: 35%;
+  opacity: 0;
+  transform: translateX(-50%); /* Start off-screen for animation */
+  animation: fadeIn 2s forwards ease-in-out,
+    slideInFromLeft 2s forwards ease-in-out;
+  animation-delay: 1.5s, 2s; /* Delay fadeIn and slideIn */
+}
+
+.center-image img {
+  margin-top: 3%;
+  border-radius: 4px;
+  height: 400px;
+  object-fit: cover;
+  width: 400px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: opacity 2s ease-in-out, transform 5s ease-in-out; /* Smooth opacity and transform changes */
+  animation: zoomInOut 10s infinite; /* Apply zoom animation */
+  opacity: 1; /* Ensure visibility */
+}
+
+/* Keyframe for zoom effect */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1); /* Start at original size */
+  }
+  50% {
+    transform: scale(0.9); /* Zoom out */
+  }
+  100% {
+    transform: scale(1); /* Zoom back to original size */
+  }
+}
+
+/* Hiding the old image */
+.center-image img.hidden {
+  opacity: 0; /* Smooth fade-out for old image */
+}
+
+/* Hero Text */
+.hero-left h1,
+.hero-left h2,
+.hero-left p {
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-50%); /* Start off-screen */
+  animation: slideInFromLeft 1s forwards ease-in-out;
+  color: #ffffff; /* Text color */
+  background: none; /* Ensure no background color */
+  background-color: transparent !important; /* Extra insurance against background */
+}
+
+.hero-left h1 {
+  font-size: 2rem; /* Adjust font size */
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  animation-delay: 2s;
+  font-weight: 600;
+}
+
+.hero-left h2 {
+  font-size: 1.7rem !important;
+  font-weight: 500;
+  margin-bottom: 25px;
+  animation-delay: 3s;
+}
+
+
+/* Discover Button */
+.discover-btn {
+  background-color: #ff0000;
+  color: white;
+  margin-top: 35px;
+  font-weight: 600;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(
+    -50%
+  ); /* This ensures it starts from the same off-screen position */
+  animation: fadeIn 1.5s forwards ease-in-out,
+    slideInFromLeft 1.5s forwards ease-in-out;
+  animation-delay: 4s; /* Appears after all text content */
+}
+
+.discover-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Right Section */
+.hero-right {
+  margin-top: 3%;
+  background-color: white;
+  width: 100%;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out; /* Smooth transition for right section */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Hero Text Animation Trigger */
+.hero-left.animate .discover-btn {
+  animation: fadeIn 1.5s forwards ease-in-out;
+  animation-delay: 4.5s;
+}
+
+/* Transition on Image Change */
+.hero-container.animate {
+  transition: background-image 1s ease-in-out;
+}
+
+/* Vehicle Form */
+.vehicle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-header i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-btn {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-container {
+    flex-direction: column;
+    min-height: 680px; /* Set a min-height for mobile */
+    padding: 5px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .center-image img {
+    position: absolute;
+    height: 200px;
+    bottom: 50%;
+    width: 60%;
+    /* height: 100px; */
+    left: 18vw;
+    object-fit: cover; /* Ensure the image fits well within the container */
+  }
+
+  .hero-left {
+    max-width: 90%;
+    margin: 2vh auto;
+    text-align: center;
+    opacity: 1;
+    transform: none;
+    animation: none; /* Disable animations for mobile */
+  }
+
+  .hero-left h1 {
+    font-size: 20px !important; /* Adjust font size for mobile */
+    text-align: center;
+  }
+
+  .hero-left h2 {
+    font-size: 16px !important; /* Adjust font size for mobile */
+    text-align: center;
+  }
+
+  .hero-left p {
+    display: none;
+  }
+
+  .discover-btn {
+    background-color: #000;
+    margin: 0 auto;
+    margin-left: 50%;
+    font-size: 12px;
+    width: 80%;
+    padding: 10px 20px;
+  }
+  .hero-right {
+    height: 310px;
+    position: absolute;
+    bottom: 10px;
+    width: 100vw;
+    right: 0;
+    margin: 0;
+    left: 0;
+    border: none;
+    border-radius: 0;
+    padding: 20px auto;
+  }
+
+  .vehicle-form {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .search-btn {
+    height: 40px;
+  }
+}
+
+/* Tablets and Medium Devices (max-width: 768px) */
+@media (min-width: 480px) and (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    min-height: 800px; /* Set a min-height for mobile */
+    padding: 5px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-left {
+    margin: 2vw auto;
+    max-width: 90%;
+    text-align: center;
+    opacity: 1;
+    transform: none;
+    animation: none; /* Disable animations for mobile */
+  }
+  .center-image img {
+    position: absolute;
+    bottom: 35%;
+    width: 60%;
+    /* height: 100px; */
+    left: 18vw;
+    object-fit: cover; /* Ensure the image fits well within the container */
+  }
+
+  .hero-left h1 {
+    font-size: 30px !important; /* Adjust font size for mobile */
+    text-align: center;
+  }
+
+  .hero-left h2 {
+    font-size: 20px !important; /* Adjust font size for mobile */
+    text-align: center;
+  }
+  .hero-left p {
+    font-size: 15px !important; /* Adjust font size for mobile */
+    text-align: center;
+  }
+
+  .discover-btn {
+    background-color: #000;
+    margin: 0 auto;
+    margin-left: 50%;
+    font-size: 12px;
+    width: 60%;
+    padding: 10px 20px;
+  }
+  .hero-right {
+    margin-top: 20px;
+    height: 310px;
+    position: absolute;
+    bottom: 10px;
+    width: 100vw;
+    right: 0;
+    margin: 0;
+    left: 0;
+    border: none;
+    border-radius: 0;
+    padding: 20px auto;
+  }
+
+  .vehicle-form {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .search-btn {
+    height: 40px;
+  }
+}
+
+/* Large Devices (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .hero-container {
+    min-height: 70vh;
+    padding: 20px;
+  }
+
+  .hero-left {
+    max-width: 35%;
+  }
+
+  .hero-left h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 35px;
+  }
+
+  .hero-left h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 25px;
+  }
+
+  .discover-btn {
+    font-size: 16px;
+    margin-left: 25%;
+    padding: 15px 30px;
+    width: 50%;
+  }
+
+  .hero-right {
+    max-width: 20%;
+  }
+}

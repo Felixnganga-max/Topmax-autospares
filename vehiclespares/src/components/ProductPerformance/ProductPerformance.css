@@ -1,0 +1,51 @@
+.product-performance-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .left-panel {
+    width: 40%;
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+  }
+  
+  .right-panel {
+    width: 60%;
+  }
+  
+  .product-button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    margin: 5px 0; /* Vertical margin to stack products one after another */
+    cursor: pointer;
+  }
+  
+  .product-button:hover {
+    background-color: #ff6600;
+    color: white;
+  }
+  
+  .view-other-products-button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .view-other-products-button:hover {
+    background-color: #ff4400;
+  }
+  
+  .other-products-list {
+    margin-top: 20px;
+  }
+  
+  .product-details {
+    margin-top: 20px;
+  }
+  

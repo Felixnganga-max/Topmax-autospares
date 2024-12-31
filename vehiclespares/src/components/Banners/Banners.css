@@ -1,0 +1,88 @@
+.banner-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.8rem;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.banner-large,
+.banner-small {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.banner-large:hover,
+.banner-small:hover {
+  transform: translateY(-4px);
+}
+
+.banner-large img,
+.banner-small img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.banner-large {
+  height: calc(
+    350px * 2 + 0.8rem
+  ); /* Height of two small banners plus the gap */
+  grid-row: span 2;
+  border: none;
+  border-radius: 10px;
+}
+
+.banner-large img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-small {
+  height: 350px;
+  border: none;
+  object-position: 0%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .banner-large {
+    height: 300px;
+    grid-row: span 1;
+  }
+
+  .banner-small {
+    height: 120px;
+  }
+}
+
+/* Optional: Add a subtle gradient overlay on hover */
+.banner-large::after,
+.banner-small::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.banner-large:hover::after,
+.banner-small:hover::after {
+  opacity: 1;
+}

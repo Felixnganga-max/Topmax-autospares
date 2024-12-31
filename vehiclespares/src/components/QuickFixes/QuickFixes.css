@@ -1,0 +1,99 @@
+.quick-fixes {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  width: 93.5%;
+  margin: 5% auto;
+}
+
+.quick-fixes h2{
+  font-size: 24px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  
+}
+
+.item-grid { /* Changed class name here */
+  /* margin-left: 30px; */
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.item-card { /* Changed class name here */
+  flex: 0 0 auto;
+  width: 250px; /* Fixed width */
+  height: 200px; /* Card height set to 100px */
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.item-card:hover { /* Changed class name here */
+  transform: scale(1.05);
+}
+
+.item-card img { /* Changed class name here */
+  width: 100%; /* Image fits the card width */
+  height: 100px; /* Proportional height to fit within card */
+  object-fit: cover; /* Ensures the image is cropped proportionally */
+  border-radius: 5px;
+}
+
+.item-card h4 { /* Changed class name here */
+  margin: 10px 0 0;
+  font-size: 14px; /* Smaller font for compact layout */
+  color: black;
+  font-weight: 500;
+  text-align: left;
+}
+
+.arrow {
+  font-size: 40px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  /* right: 20%; */
+  z-index: 2;
+  padding: 10px;
+  border-radius: 50%;
+  /* margin: 0 20px; */
+}
+
+.arrow:hover {
+  background-color: #ff2929; /* Highlight color */
+  color: white;
+}
+
+.arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.arrow-left {
+  left: -20px; /* Overlaps gallery */
+}
+
+.arrow-right {
+  right: -20px; /* Overlaps gallery */
+}

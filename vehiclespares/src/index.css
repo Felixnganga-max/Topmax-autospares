@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit";
+  background-color: transparent; /* Ensures no background color */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Disable horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Webkit (Chrome, Safari, newer versions of Opera) */
+.filters::-webkit-scrollbar,
+.products::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+.filters::-webkit-scrollbar-track,
+.products::-webkit-scrollbar-track {
+  background: #ff2929; /* Light grey background of the track */
+}
+
+.filters::-webkit-scrollbar-thumb,
+.products::-webkit-scrollbar-thumb {
+  background: #ff2929; /* Dark grey scrollbar handle */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.filters::-webkit-scrollbar-thumb:hover,
+.products::-webkit-scrollbar-thumb:hover {
+  background: #ff2929; /* Darker grey on hover */
+}
+
+/* Firefox scrollbar styling */
+.filters,
+.products {
+  scrollbar-width: thin;
+  scrollbar-color: #ff2929;
+}
+
+.favicon {
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+}

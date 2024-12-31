@@ -1,0 +1,175 @@
+/* Base Styles */
+.navigation {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7vh;
+  padding: 0 20px;
+}
+
+.top-logo {
+  margin-top: 14px;
+  object-fit: cover;
+  width: 180px;
+  height: auto;
+
+}
+
+.navigation img {
+  height: 35px;
+}
+
+.center {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.item {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a1d;
+  text-transform: uppercase;
+}
+
+.right {
+  display: flex;
+  gap: 20px;
+}
+
+.right h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.menus {
+  height: 25px;
+  display: none;
+}
+
+/* Small Screens: max-width 480px */
+@media (max-width: 480px) {
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-logo {
+    object-fit: cover;
+    width: 135px;
+    height: auto;
+  }
+
+  
+  .center {
+    display: none; /* Hide center items */
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .center.show {
+    display: flex; /* Show menu items when toggled */
+  }
+
+  .menus {
+    display: block; /* Show menu icons */
+  }
+
+  .right {
+    display: none; /* Hide right section */
+  }
+}
+
+/* Medium Screens: 480px to 768px */
+@media (min-width: 480px) and (max-width: 768px) {
+  .left {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center;
+  }
+  .top-logo {
+    object-fit: cover;
+    width: 135px;
+    height: auto;
+  }
+
+  .menus {
+    display: block;
+  }
+
+  .center {
+    display: none; /* Hide items by default */
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .center.show {
+    display: flex; /* Show menu items when toggled */
+  }
+
+  .menus img {
+    display: block; /* Show menu icons */
+  }
+
+  .right {
+    display: none; /* Hide right section */
+  }
+}
+
+/* Large Screens: 768px to 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .menus {
+    display: none; /* Hide toggle buttons */
+  }
+
+  .center {
+    display: flex; /* Show center items */
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .left {
+    display: flex; /* Show left section */
+  }
+
+  .right {
+    display: none; /* Hide right section */
+  }
+}
+
+/* Larger Screens: > 1200px */
+@media (min-width: 1201px) {
+  .menus img {
+    display: none; /* Hide icons for larger screens */
+  }
+
+  .center {
+    display: flex; /* Show all sections inline */
+    gap: 20px;
+  }
+
+  .right {
+    display: flex; /* Show right section */
+  }
+}
