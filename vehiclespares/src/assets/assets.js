@@ -5,7 +5,6 @@ import suspension from './images/suspension.png';
 import shocks from './images/shocks.png';
 import oil from './images/oils.png';
 import batteries from './images/batteries.png';
-import contact from './images/contact.png'
 
 
 export const images = {
