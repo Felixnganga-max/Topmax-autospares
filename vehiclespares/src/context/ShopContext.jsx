@@ -6,7 +6,7 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [productData, setProductData] = useState([]);
-  const url = "https://topmax-autospares-cyg2.vercel.app/"; // Define the base URL
+  const url = "https://topmax-autospares-cyg2.vercel.app"; // Define the base URL
   const [token, setToken] = useState("");
 
   // Fetch product data
