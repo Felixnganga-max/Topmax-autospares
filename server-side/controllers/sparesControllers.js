@@ -1,16 +1,5 @@
 const sparePartModel = require("../models/spareModel.js");
-const fs = require("fs");
-const path = require("path");
-
-// Utility to remove a file
-const removeFile = (filePath) => {
-  return new Promise((resolve, reject) => {
-    fs.unlink(filePath, (err) => {
-      if (err) return reject(err);
-      resolve();
-    });
-  });
-};
+const {cloudinary} = require("../config/claudinary");
 
 // Add Spare Part
 const addSparePart = async (req, res) => {
@@ -20,17 +9,18 @@ const addSparePart = async (req, res) => {
       return res.status(400).json({ success: false, message: "Image file is required" });
     }
 
+    // Save the spare part to the database
     const sparePart = new sparePartModel({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      priceHistory: req.body.priceHistory || [], // Default to an empty array if not provided
+      priceHistory: req.body.priceHistory || [], // Default to an empty array
       dimensions: req.body.dimensions,
       compatibility: req.body.compatibility,
       category: req.body.category,
       brand: req.body.brand,
       stock: req.body.stock,
-      image: req.file.filename, // Save the uploaded image filename
+      image: req.file.path, // Use Cloudinary URL
       warranty: req.body.warranty,
       ratings: req.body.ratings || [], // Default to an empty array
     });
@@ -46,7 +36,6 @@ const addSparePart = async (req, res) => {
 // List Spare Parts
 const listSpareParts = async (req, res) => {
   try {
-    // Fetch all spare parts without limiting fields
     const spareParts = await sparePartModel.find();
     res.status(200).json({ success: true, data: spareParts });
   } catch (error) {
@@ -60,19 +49,15 @@ const removeSparePart = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Validate ID
+    // Find the spare part by ID
     const sparePart = await sparePartModel.findById(id);
     if (!sparePart) {
       return res.status(404).json({ success: false, message: "Spare part not found" });
     }
 
-    // Remove associated image file
-    const imagePath = path.join("uploads", sparePart.image);
-    try {
-      await removeFile(imagePath);
-    } catch (err) {
-      console.error(`Error removing file: ${imagePath}`, err);
-    }
+    // Remove associated image from Cloudinary
+    const publicId = sparePart.image.split("/").pop().split(".")[0]; // Extract public_id
+    await cloudinary.uploader.destroy(publicId);
 
     // Remove spare part from the database
     await sparePartModel.findByIdAndDelete(id);
@@ -96,16 +81,12 @@ const updateSparePart = async (req, res) => {
 
     // Handle image replacement
     if (req.file) {
-      // Remove the old image
-      const oldImagePath = path.join("uploads", sparePart.image);
-      try {
-        await removeFile(oldImagePath);
-      } catch (err) {
-        console.error(`Error removing file: ${oldImagePath}`, err);
-      }
+      // Remove old image from Cloudinary
+      const publicId = sparePart.image.split("/").pop().split(".")[0];
+      await cloudinary.uploader.destroy(publicId);
 
-      // Update with new image filename
-      sparePart.image = req.file.filename;
+      // Update with new image URL
+      sparePart.image = req.file.path;
     }
 
     // Update other fields
@@ -146,5 +127,5 @@ module.exports = {
   listSpareParts,
   removeSparePart,
   updateSparePart,
-  getSparePartDetails
+  getSparePartDetails,
 };

@@ -142,7 +142,7 @@ const FilterAndProductDisplay = () => {
             <div key={product._id} className="fpd-product">
               <Link to={`/product/${product._id}`} className="fpd-product__link">
                 <img
-                  src={url + "/images/" + product.image}
+                  src={product.image}
                   alt={product.name}
                   className="fpd-product__image"
                 />
