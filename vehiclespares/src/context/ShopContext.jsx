@@ -21,9 +21,7 @@ const ShopContextProvider = (props) => {
       // Ensure we're setting the correct data
       if (response.data && response.data.data) {
         setProductData(response.data.data);
-      } else {
-        console.error("Unexpected API response structure", response.data);
-      }
+      } 
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
