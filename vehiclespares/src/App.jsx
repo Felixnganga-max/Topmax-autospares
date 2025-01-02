@@ -14,7 +14,7 @@ import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import FilterAndProductDisplay from "./pages/FilterAndProductDisplay/FilterAndProductDisplay";
 import LoginPopUp from "./components/LoginPopUp/LoginPopUp";
-import AddSparePart from "./components/AddSparePart/AddSparePart.JSX";
+import AddSparePart from "./components/AddSparePart/AddSparePart";
 import AdminProductList from "./components/AdminProductList/AdminProductList";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import Verify from "./pages/Verify/Verify";
