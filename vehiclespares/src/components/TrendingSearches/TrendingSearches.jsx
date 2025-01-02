@@ -45,7 +45,7 @@ const TrendingSearches = () => {
           >
             {/* //TOP STUFF */}
             <img
-              src={`${url}/images/${product.image}`}
+              src={`${product.image}`}
               alt={product.name}
               className="trending-product-image"
             />

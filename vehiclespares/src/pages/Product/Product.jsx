@@ -140,7 +140,7 @@ const ProductInfo = ({ product, url }) => {
       <div className="product-images-container">
         {product.image ? (
           <img
-            src={`${url}/images/${product.image}`}
+            src={`${product.image}`}
             alt={product.name || "Unnamed Product"}
             className="large-image"
             onError={(e) => {
@@ -313,7 +313,7 @@ const RelatedProducts = React.memo(
               onClick={() => navigate(`/product/${prod._id}`)}
             >
               <img
-                src={`${url}/images/${prod.image}`}
+                src={`${prod.image}`}
                 alt={prod.name || "Unnamed Product"}
                 className="related-product-image"
                 onError={(e) => {

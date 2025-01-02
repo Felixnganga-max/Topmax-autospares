@@ -36,8 +36,8 @@ const Hero = () => {
     price = 0,
   } = randomProduct || {};
 
-  // Construct image URL safely
-  const productImage = image ? `${url}/images/${image}` : "";
+  // Check if image is a full URL or needs the base URL
+  const productImage = image.startsWith("http") ? image : `${url}/images/${image}`;
 
   return (
     <div
