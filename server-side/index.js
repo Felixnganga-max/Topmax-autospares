@@ -19,7 +19,12 @@ const performanceRouter = require("./routes/performanceRouter.js");
 // MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: 'https://topmax-autospares-cyg2.vercel.app/', // Replace with the actual frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Optional: specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Optional: specify allowed headers
+}));
+
 
 // Connect to the database
 connectDB();

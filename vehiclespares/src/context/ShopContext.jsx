@@ -13,6 +13,7 @@ const ShopContextProvider = (props) => {
   const fetchProductData = async () => {
     try {
       const response = await axios.get(url + "/api/spares/list");
+      
 
       // Log the entire response to understand its structure
       console.log("Full API Response:", response.data);
