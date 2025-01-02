@@ -7,10 +7,6 @@ import oil from './images/oils.png';
 import batteries from './images/batteries.png';
 
 
-export const images = {
-  contact
-}
-
 const categoryData = [
   {
     name: "Oil",

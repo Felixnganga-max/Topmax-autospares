@@ -2,18 +2,12 @@ import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { IoMdCall } from "react-icons/io";
 import "./Contact.css";
-import { images } from "../../assets/assets";
 
 const Contact = () => {
   return (
     <section className="contact-us-container">
       {/* Hero Section */}
       <div className="contact-hero">
-        <img
-          src={images.contact}
-          alt="Contact Us Hero"
-          className="hero-image"
-        />
         <h1 className="hero-title">Get in Touch with Us</h1>
 
         {/* Social Media Icons */}
