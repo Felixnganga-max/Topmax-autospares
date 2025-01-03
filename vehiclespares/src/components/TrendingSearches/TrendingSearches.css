@@ -314,11 +314,11 @@
   }
 
   .trending-product-card {
-    min-height: 300px; /* Further reduce card height */
+    min-height: 400px; /* Further reduce card height */
   }
 
   .trending-product-image {
-    height: 150px; /* Adjust image height */
+    height: 200px; /* Adjust image height */
   }
 
   .social-icons {
