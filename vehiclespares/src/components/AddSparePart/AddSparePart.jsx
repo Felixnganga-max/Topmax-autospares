@@ -59,7 +59,7 @@ const AddSparePart = ({ categories = [], brands = [] }) => {
     try {
       // Make the API call with correct headers
       const response = await axios.post(
-        "http://localhost:4004/api/spares/add",
+        "https://topmax-autospares.vercel.app/api/spares/add",
         submissionData,
         {
           headers: {

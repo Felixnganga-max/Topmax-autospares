@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Placing User Order
 const placeOrder = async (req, res) => {
-  const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+  const frontend_url = "https://www.topmazautospares.com/";
 
   try {
     const userId = req.user?.userId;

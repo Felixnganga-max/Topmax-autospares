@@ -18,12 +18,11 @@ import AddSparePart from "./components/AddSparePart/AddSparePart";
 import AdminProductList from "./components/AdminProductList/AdminProductList";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import Verify from "./pages/Verify/Verify";
-import { useContext } from 'react';
-import { ShopContext } from './context/ShopContext';
-import { jwtDecode } from 'jwt-decode';
-import { Navigate } from 'react-router-dom';
-import 'font-awesome/css/font-awesome.min.css';
-
+import { useContext } from "react";
+import { ShopContext } from "./context/ShopContext";
+import { jwtDecode } from "jwt-decode";
+import { Navigate } from "react-router-dom";
+import "font-awesome/css/font-awesome.min.css";
 
 // Create ProtectedRoute component
 const ProtectedRoute = ({ children }) => {
@@ -33,9 +32,9 @@ const ProtectedRoute = ({ children }) => {
     if (!token) return false;
     try {
       const decoded = jwtDecode(token);
-      return decoded.userRole === 'admin';
+      return decoded.userRole === "admin";
     } catch (error) {
-      console.error('Token decode error:', error);
+      console.error("Token decode error:", error);
       return false;
     }
   };
@@ -53,9 +52,11 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {/* Render Navbar only if the current route is not "/admin" */}
+      {location.pathname !== "/admin" && <Navbar />}
+
       {location.pathname !== "/admin" && <Nav setShowLogin={setShowLogin} />}
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -67,23 +68,32 @@ function App() {
         <Route path="/my-orders" element={<MyOrders />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/product/:productId" element={<Product />} />
-        
+
         {/* Protected Admin Routes */}
-        <Route path="/add" element={
-          <ProtectedRoute>
-            <AddSparePart />
-          </ProtectedRoute>
-        } />
-        <Route path="/list" element={
-          <ProtectedRoute>
-            <AdminProductList />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin" element={
-          <ProtectedRoute>
-            <AdminPage />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/add"
+          element={
+            <ProtectedRoute>
+              <AddSparePart />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/list"
+          element={
+            <ProtectedRoute>
+              <AdminProductList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
       {location.pathname !== "/admin" && <Footer />}

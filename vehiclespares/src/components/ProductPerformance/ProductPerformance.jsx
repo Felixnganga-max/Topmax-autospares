@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import './ProductPerformance.css'
 
 export default class ProductPerformance extends PureComponent {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class ProductPerformance extends PureComponent {
 
   fetchProductData = async () => {
     try {
-      const response = await axios.get("http://localhost:4004/api/performance/product-data");
+      const response = await axios.get("https://topmax-autospares.vercel.app/api/performance/product-data");
       const apiData = response.data;
 
       if (Array.isArray(apiData.data)) {

@@ -24,13 +24,13 @@
   }
   
   .product-button:hover {
-    background-color: #ff6600;
+    background-color: #ff2929;
     color: white;
   }
   
   .view-other-products-button {
     padding: 10px;
-    background-color: #ff6600;
+    background-color: #ff2929;
     color: white;
     border: none;
     cursor: pointer;
@@ -38,7 +38,7 @@
   }
   
   .view-other-products-button:hover {
-    background-color: #ff4400;
+    background-color: #ff2929;
   }
   
   .other-products-list {

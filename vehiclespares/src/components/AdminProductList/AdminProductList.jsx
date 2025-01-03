@@ -67,7 +67,7 @@ const AdminProductList = () => {
             <div className="product-card" key={product._id}>
               <div>
                 <img
-                  src={`${url}/images/${product.image}`}
+                  src={`${product.image}`}
                   alt={product.name}
                   className="product-image"
                 />
