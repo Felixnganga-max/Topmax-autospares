@@ -9,14 +9,14 @@ const MyOrders = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     };
-    return date.toLocaleDateString('en-US', options);
+    return date.toLocaleDateString("en-US", options);
   };
 
   const fetchOrders = async () => {
@@ -39,7 +39,7 @@ const MyOrders = () => {
   const updateOrderStatus = async (orderId) => {
     try {
       const response = await axios.post(
-        url + `/api/order/track-order`, 
+        url + `/api/order/track-order`,
         { orderId },
         {
           headers: {
@@ -47,11 +47,10 @@ const MyOrders = () => {
           },
         }
       );
-      // Update the local state with the new status
-      setData((prevData) => 
-        prevData.map((order) => 
-          order._id === orderId 
-            ? { ...order, status: response.data.status } 
+      setData((prevData) =>
+        prevData.map((order) =>
+          order._id === orderId
+            ? { ...order, status: response.data.status }
             : order
         )
       );
@@ -68,7 +67,31 @@ const MyOrders = () => {
 
   return (
     <div className="my-orders-container">
-      {data.length > 0 ? (
+      {!token ? (
+        <div className="auth-required-container">
+          <p className="auth-required-message">
+            You need to be logged in to see this page.
+          </p>
+          <p className="auth-suggestion-message">
+            Sign in now to access your order history and enjoy seamless shopping with us.
+          </p>
+          <a href="/login" className="auth-login-btn">
+            Login Now
+          </a>
+        </div>
+      ) : data.length === 0 ? (
+        <div className="no-orders-container">
+          <p className="no-orders-message">
+            You haven't placed any orders yet.
+          </p>
+          <p className="no-orders-suggestion">
+            Discover our premium selection of products and place your first order today!
+          </p>
+          <a href="/shop" className="shop-now-btn">
+            Start Shopping
+          </a>
+        </div>
+      ) : (
         <ul className="order-list">
           {data.map((order, index) => (
             <li key={index} className="order-item">
@@ -91,8 +114,8 @@ const MyOrders = () => {
                 <span className="order-status">{order.status}</span>
               </p>
               <div className="container-btn">
-                <button 
-                  className="btn" 
+                <button
+                  className="btn"
                   onClick={() => updateOrderStatus(order._id)}
                 >
                   Track Order
@@ -101,13 +124,9 @@ const MyOrders = () => {
             </li>
           ))}
         </ul>
-      ) : (
-        <p className="no-orders-message">You need to be logged in to see this page</p>
       )}
     </div>
   );
 };
-
-
 
 export default MyOrders;

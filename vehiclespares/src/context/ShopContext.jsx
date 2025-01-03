@@ -13,17 +13,14 @@ const ShopContextProvider = (props) => {
   const fetchProductData = async () => {
     try {
       const response = await axios.get(url + "/api/spares/list");
-      
-
-      // Log the entire response to understand its structure
-      console.log("Full API Response:", response.data);
+    
 
       // Ensure we're setting the correct data
       if (response.data && response.data.data) {
         setProductData(response.data.data);
       } 
     } catch (error) {
-      console.error("Error fetching product data:", error);
+      // console.error("Error fetching product data:", error);
     }
   };
 
@@ -31,7 +28,7 @@ const ShopContextProvider = (props) => {
     const storedToken = localStorage.getItem("token");
 
     if (!storedToken) {
-      console.error("No token was found in storage");
+      // console.error("No token was found in storage");
       return;
     }
 
@@ -47,7 +44,7 @@ const ShopContextProvider = (props) => {
         }
       );
 
-      console.log("Server response:", response.data);
+      // console.log("Server response:", response.data);
 
       setCartItems((prev) => ({
         ...prev,
@@ -105,7 +102,7 @@ const ShopContextProvider = (props) => {
         }
       );
     } catch (error) {
-      console.error("Error removing from cart:", error);
+      // console.error("Error removing from cart:", error);
     }
   };
 
@@ -122,16 +119,16 @@ const ShopContextProvider = (props) => {
         {}, // Assuming the token is passed in the header, no need for body data
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log("API Response:", response.data); // Log the API response to check the data structure
+      // console.log("API Response:", response.data); // Log the API response to check the data structure
 
       // Ensure cartData is returned and correctly set
       if (response.data.success) {
         setCartItems(response.data.cartData);
       } else {
-        console.error("Error loading cart data:", response.data.message);
+        // console.error("Error loading cart data:", response.data.message);
       }
     } catch (error) {
-      console.error("Error loading cart data:", error);
+      // console.error("Error loading cart data:", error);
     }
   };
 
