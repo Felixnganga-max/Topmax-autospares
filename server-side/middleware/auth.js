@@ -31,6 +31,14 @@ const authMiddle = async (req, res, next) => {
 
     next();
   } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      console.error("Token expired:", error);
+      return res.status(401).json({
+        success: false,
+        message: "Token expired. Please log in again.",
+      });
+    }
+
     console.error("Error verifying token:", error);
     return res.status(401).json({
       success: false,
@@ -39,4 +47,4 @@ const authMiddle = async (req, res, next) => {
   }
 };
 
-module.exports = authMiddle; // Export the middleware function
+module.exports = authMiddle;
