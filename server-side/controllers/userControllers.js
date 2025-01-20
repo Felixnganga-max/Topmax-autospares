@@ -50,20 +50,20 @@ const loginUser = async (req, res) => {
 
     // If user not found, return an error
     if (!user) {
-      return res.status(404).json({ 
+      return res.status(404).json({
         success: false,
         message: "User not found",
-        redirectUrl: null 
+        redirectUrl: null,
       });
     }
 
     // Password matching
     const isValidPassword = await bcryptjs.compare(password, user.password);
     if (!isValidPassword) {
-      return res.status(401).json({ 
+      return res.status(401).json({
         success: false,
         message: "Invalid password",
-        redirectUrl: null 
+        redirectUrl: null,
       });
     }
 
@@ -75,18 +75,21 @@ const loginUser = async (req, res) => {
         userRole: user.role,
       },
       process.env.SECRET_KEY,
-      { expiresIn: "7d" }
+      { expiresIn: "1d" }
     );
 
     // Determine redirect URL based on user role
-    const redirectUrl = user.role === 'admin' ? 'http://localhost:5173/admin' : 'http://localhost:5173/dashboard';
-    
+    const redirectUrl =
+      user.role === "admin"
+        ? "http://localhost:5173/admin"
+        : "http://localhost:5173/dashboard";
+
     res.status(200).json({
       success: true,
       message: "User logged in successfully",
       token: token,
       redirectUrl: redirectUrl,
-      isAdmin: user.role === 'admin'
+      isAdmin: user.role === "admin",
     });
   } catch (error) {
     console.error("Error logging in user:", error);
@@ -94,7 +97,7 @@ const loginUser = async (req, res) => {
       success: false,
       message: "Error logging in user",
       error: error.message,
-      redirectUrl: null
+      redirectUrl: null,
     });
   }
 };
@@ -102,20 +105,20 @@ const loginUser = async (req, res) => {
 // Frontend handling (React example)
 const handleLogin = async (loginData) => {
   try {
-    const response = await fetch('/api/login', {
-      method: 'POST',
+    const response = await fetch("/api/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(loginData)
+      body: JSON.stringify(loginData),
     });
 
     const data = await response.json();
 
     if (data.success) {
       // Store the token
-      localStorage.setItem('token', data.token);
-      
+      localStorage.setItem("token", data.token);
+
       // Redirect based on role
       if (data.redirectUrl) {
         window.location.href = data.redirectUrl;
@@ -125,7 +128,7 @@ const handleLogin = async (loginData) => {
       console.error(data.message);
     }
   } catch (error) {
-    console.error('Login error:', error);
+    console.error("Login error:", error);
   }
 };
 

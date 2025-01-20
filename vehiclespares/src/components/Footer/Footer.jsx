@@ -34,7 +34,7 @@ const Footer = () => {
           <h4>Contact</h4>
           <ul>
             <li>Email: support@spareparts.com</li>
-            <li>Phone: +1 (800) 123-4567</li>
+            <li>Phone: 0723 938519</li>
             <li>Address: 123 Auto Parts St, Vehicle City, USA</li>
             <li>Follow Us:</li>
             <li>

@@ -152,7 +152,8 @@ const AddSparePart = ({ categories = [], brands = [] }) => {
             <option value="Filters">Filters</option>
             <option value="Suspension">Suspension</option>
             <option value="Tires">Tires</option>
-            <option value="Interior Accessories">Interior Accessories</option>
+            <option value="Fuel System">Fuel System</option>
+            <option value="Accessories">Interior Accessories</option>
           </select>
         </div>
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa6";
-import './FilterAndProductDisplay.css'
+import "./FilterAndProductDisplay.css";
 
 const FilterAndProductDisplay = () => {
   const { productData, addToCart, url } = useContext(ShopContext);
@@ -76,7 +76,7 @@ const FilterAndProductDisplay = () => {
 
   const handleProceedToBuy = async (productId) => {
     await addToCart(productId);
-    navigate("/place-order");
+    navigate("/order");
   };
 
   return (
@@ -140,7 +140,10 @@ const FilterAndProductDisplay = () => {
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <div key={product._id} className="fpd-product">
-              <Link to={`/product/${product._id}`} className="fpd-product__link">
+              <Link
+                to={`/product/${product._id}`}
+                className="fpd-product__link"
+              >
                 <img
                   src={product.image}
                   alt={product.name}
@@ -152,7 +155,9 @@ const FilterAndProductDisplay = () => {
                   <p className="fpd-product__stock">
                     {product.stock > 5 ? `In Stock` : "Out of Stock"}
                   </p>
-                  <span className="fpd-product__price">KSh. {product.price.toLocaleString()}</span>
+                  <span className="fpd-product__price">
+                    KSh. {product.price.toLocaleString()}
+                  </span>
                 </div>
               </Link>
               <div className="fpd-product__actions">
@@ -172,7 +177,9 @@ const FilterAndProductDisplay = () => {
             </div>
           ))
         ) : (
-          <p className="fpd-products__empty">No products match the selected filters.</p>
+          <p className="fpd-products__empty">
+            No products match the selected filters.
+          </p>
         )}
       </div>
     </div>
