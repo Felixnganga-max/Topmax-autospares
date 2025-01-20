@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             <li>Email: support@spareparts.com</li>
             <li>Phone: 0723 938519</li>
-            <li>Address: 123 Auto Parts St, Vehicle City, USA</li>
+            <li>Address: Nairobi, Kenya</li>
             <li>Follow Us:</li>
             <li>
               <a href="#">Facebook</a> | <a href="#">Instagram</a> |{" "}

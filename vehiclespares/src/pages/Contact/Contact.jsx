@@ -1,5 +1,10 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { IoMdCall } from "react-icons/io";
 import "./Contact.css";
 
@@ -30,9 +35,15 @@ const Contact = () => {
       {/* Contact Details Section */}
       <div className="contact-details">
         <h2>Contact Details</h2>
-        <p>Email: <span className="highlight">info@topmazautospares.com</span></p>
-        <p>Phone: <span className="highlight">+254 700 123 456</span></p>
-        <p>Address: <span className="highlight">123 AutoSpares Lane, Nairobi</span></p>
+        <p>
+          Email: <span className="highlight">topmazautospares@gmail.com</span>
+        </p>
+        <p>
+          Phone: <span className="highlight">+254 700 123 456</span>
+        </p>
+        <p>
+          Address: <span className="highlight">Nairobi, Kenya</span>
+        </p>
       </div>
     </section>
   );
