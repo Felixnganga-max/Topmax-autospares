@@ -39,7 +39,7 @@ const Cart = () => {
     return (
       <div className="cart-empty">
         <h2>Your Cart is Empty</h2>
-        <p>Looks like you haven't added any items to your cart yet.</p>
+        <p className="">Looks like you haven't added any items to your cart yet.</p>
         <button onClick={() => navigate("/collections")}>
           Continue Shopping
         </button>

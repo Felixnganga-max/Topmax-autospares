@@ -101,6 +101,26 @@
   cursor: pointer;
 }
 
+.cart-empty h2 {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cart-empty p {
+  font-size: large;
+  margin-bottom: 1rem;
+}
+
+.cart-empty button {
+  width: max(10vw, 150px);
+  padding: 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: #ff2929;
+}
+
 @media (max-width: 480px) {
   .cart-bottom {
     flex-direction: column-reverse;

@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
 import { FaCartPlus } from "react-icons/fa6";
 
-const categories = ["Accessories", "Filters", "Engine", "Brakes"];
+const categories = ["Interior Accessories", "Filters", "Engine", "Brakes"];
 
 const TrendingSearches = () => {
   const { productData, addToCart, url } = useContext(ShopContext);
